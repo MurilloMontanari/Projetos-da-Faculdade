@@ -1,0 +1,40 @@
+using Xunit;
+using System.Collections.Generic;
+
+public class Caixa
+{
+    public List<double> Vendas { get; set; } = new List<double>();
+
+    public void RegistrarVenda(double valor)
+    {
+        Vendas.Add(valor);
+    }
+
+    public double CalcularTotal()
+    {
+        double total = 0;
+        foreach (var venda in Vendas)
+        {
+            total += venda;
+        }
+        return total;
+    }
+}
+
+public class CaixaTests
+{
+    [Fact]
+    public void DeveCalcularTotalDeVendasCorretamente()
+    {
+        // Arrange
+        var caixa = new Caixa();
+        caixa.RegistrarVenda(10.00);
+        caixa.RegistrarVenda(5.00);
+
+        // Act
+        double total = caixa.CalcularTotal();
+
+        // Assert
+        Assert.Equal(15.00, total);
+    }
+}

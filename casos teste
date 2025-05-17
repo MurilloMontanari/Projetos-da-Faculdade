@@ -1,0 +1,35 @@
+using Xunit;
+
+public class Produto
+{
+    public string Nome { get; set; }
+    public int Quantidade { get; set; }
+    public double Preco { get; set; }
+
+    public Produto(string nome, int quantidade, double preco)
+    {
+        Nome = nome;
+        Quantidade = quantidade;
+        Preco = preco;
+    }
+}
+
+public class ProdutoTests
+{
+    [Fact]
+    public void DeveCadastrarProdutoCorretamente()
+    {
+        // Arrange
+        string nome = "Banana";
+        int quantidade = 10;
+        double preco = 1.50;
+
+        // Act
+        Produto produto = new Produto(nome, quantidade, preco);
+
+        // Assert
+        Assert.Equal("Banana", produto.Nome);
+        Assert.Equal(10, produto.Quantidade);
+        Assert.Equal(1.50, produto.Preco);
+    }
+}

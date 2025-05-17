@@ -1,0 +1,72 @@
+using System;
+using System.Collections.Generic;
+using Npgsql;
+
+public class Produto
+{
+    public int Id { get; set; }
+    public string Nome { get; set; }
+    public double Preco { get; set; }
+}
+
+public class ProdutoRepository
+{
+    private readonly string conexao = "Host=localhost;Username=postgres;Password=senha;Database=hortifruti";
+
+    // Método 1: Criar produto
+    public void CriarProduto(string nome, double preco)
+    {
+        using (var conn = new NpgsqlConnection(conexao))
+        {
+            conn.Open();
+            var sql = "INSERT INTO produtos (nome, preco) VALUES (@nome, @preco)";
+            using (var cmd = new NpgsqlCommand(sql, conn))
+            {
+                cmd.Parameters.AddWithValue("nome", nome);
+                cmd.Parameters.AddWithValue("preco", preco);
+                cmd.ExecuteNonQuery();
+            }
+        }
+    }
+
+    // Método 2: Ler produtos
+    public List<Produto> LerProdutos()
+    {
+        var lista = new List<Produto>();
+        using (var conn = new NpgsqlConnection(conexao))
+        {
+            conn.Open();
+            var sql = "SELECT id, nome, preco FROM produtos";
+            using (var cmd = new NpgsqlCommand(sql, conn))
+            using (var reader = cmd.ExecuteReader())
+            {
+                while (reader.Read())
+                {
+                    lista.Add(new Produto
+                    {
+                        Id = reader.GetInt32(0),
+                        Nome = reader.GetString(1),
+                        Preco = reader.GetDouble(2)
+                    });
+                }
+            }
+        }
+        return lista;
+    }
+
+    // Método 3: Atualizar preço do produto
+    public void AtualizarPrecoProduto(int id, double novoPreco)
+    {
+        using (var conn = new NpgsqlConnection(conexao))
+        {
+            conn.Open();
+            var sql = "UPDATE produtos SET preco = @preco WHERE id = @id";
+            using (var cmd = new NpgsqlCommand(sql, conn))
+            {
+                cmd.Parameters.AddWithValue("preco", novoPreco);
+                cmd.Parameters.AddWithValue("id", id);
+                cmd.ExecuteNonQuery();
+            }
+        }
+    }
+}

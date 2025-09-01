@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>TechSolutions - Inovação em TI</title>
+
+ <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+rel="stylesheet">
+</head>
+<body>
+ <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+ <div class="container">
+ <a class="navbar-brand fw-bold" href="#">TechSolutions</a>
+ <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bstarget="#navbarNav">
+ <span class="navbar-toggler-icon"></span>
+ </button>
+ <div class="collapse navbar-collapse" id="navbarNav">
+ <ul class="navbar-nav ms-auto">
+ <li class="nav-item"><a class="nav-link" href="#sobre">Sobre</a></li>
+ <li class="nav-item"><a class="nav-link" href="#servicos">Serviços</a></li>
+ <li class="nav-item"><a class="nav-link" href="#contato">Contato</a></li>
+ </ul>
+ </div>
+ </div>
+ </nav>
+ <section class="bg-primary text-light text-center p-5">
+ <div class="container">
+ <h1 class="display-4">Bem-vindo à TechSolutions</h1>
+ <p class="lead">Soluções de tecnologia para o futuro da sua empresa.</p>
+ <a href="#contato" class="btn btn-light btn-lg mt-3">Fale Conosco</a>
+ </div>
+ </section>
+ <section id="sobre" class="p-5">
+ <div class="container">
+ <div class="row align-items-center">
+ <div class="col-md-6">
+ <h2>Quem Somos</h2>
+ <p>
+ A TechSolutions é uma empresa fictícia especializada em desenvolvimento de
+software,
+ consultoria em TI e soluções inovadoras para transformar negócios.
+ </p>
+ <p>
+ Nossa missão é ajudar empresas a crescerem por meio da tecnologia,
+oferecendo
+ qualidade, agilidade e inovação em cada projeto.
+ </p>
+ </div>
+ <div class="col-md-6">
+ <img src="https://via.placeholder.com/500x300" class="img-fluid rounded"
+alt="Sobre nós">
+ </div>
+ </div>
+ </div>
+ </section>
+ <section id="servicos" class="bg-light p-5">
+ <div class="container text-center">
+ <h2 class="mb-4">Nossos Serviços</h2>
+ <div class="row g-4">
+ <div class="col-md-4">
+ <div class="card h-100 shadow">
+ <div class="card-body">
+ <h5 class="card-title">Desenvolvimento Web</h5>
+ <p class="card-text">Sites e sistemas personalizados para atender as
+necessidades da sua empresa.</p>
+ </div>
+ </div>
+ </div>
+ <div class="col-md-4">
+ <div class="card h-100 shadow">
+ <div class="card-body">
+ <h5 class="card-title">Consultoria em TI</h5>
+ <p class="card-text">Soluções estratégicas para melhorar processos e reduzir
+custos com tecnologia.</p>
+ </div>
+ </div>
+ </div>
+ <div class="col-md-4">
+ <div class="card h-100 shadow">
+ <div class="card-body">
+ <h5 class="card-title">Suporte Técnico</h5>
+ <p class="card-text">Atendimento rápido e eficaz para garantir o
+funcionamento da sua infraestrutura.</p>
+ </div>
+ </div>
+ </div>
+ </div>
+ </div>
+ </section>
+ <section id="contato" class="p-5">
+ <div class="container">
+ <h2 class="text-center mb-4">Entre em Contato</h2>
+ <div class="row justify-content-center">
+ <div class="col-md-6">
+ <form>
+ <div class="mb-3">
+ <label for="nome" class="form-label">Nome</label>
+ <input type="text" class="form-control" id="nome" placeholder="Seu nome">
+ </div>
+ <div class="mb-3">
+ <label for="email" class="form-label">E-mail</label>
+ <input type="email" class="form-control" id="email"
+placeholder="seuemail@exemplo.com">
+ </div>
+ <div class="mb-3">
+ <label for="mensagem" class="form-label">Mensagem</label>
+ <textarea class="form-control" id="mensagem" rows="4"></textarea>
+ </div>
+ <button type="submit" class="btn btn-primary w-100">Enviar</button>
+ </form>
+ </div>
+ </div>
+ </div>
+ </section>
+ <footer class="bg-dark text-light text-center p-3">
+ <p class="mb-0">© 2025 TechSolutions - Todos os direitos reservados.</p>
+ </footer>
+ <script
+src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"><
+/script>
+</body>
+</html>

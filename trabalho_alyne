@@ -1,0 +1,60 @@
+//Usei o padrão de projeto Singleton, que garante que só exista uma instância da classe Log. Isso é útil quando queremos centralizar algo no sistema, como o registro de mensagens, evitando duplicações.//
+
+
+
+using System;
+
+namespace ExemploSingleton
+{
+    // Classe Singleton para o gerenciador de log
+    public class Log
+    {
+        // Armazena a única instância da classe
+        private static Log instancia;
+
+        // Construtor privado impede que a classe seja instanciada de fora
+        private Log() { }
+
+        // Método que retorna a instância única
+        public static Log Instancia
+        {
+            get
+            {
+                if (instancia == null)
+                {
+                    instancia = new Log();
+                    Console.WriteLine("Nova instância de Log criada!");
+                }
+                return instancia;
+            }
+        }
+
+        // Método para registrar mensagens
+        public void Registrar(string mensagem)
+        {
+            Console.WriteLine($"[LOG] {DateTime.Now}: {mensagem}");
+        }
+    }
+
+    // Classe de teste
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            // Todas as partes do sistema usam a mesma instância do Log
+            Log log1 = Log.Instancia;
+            log1.Registrar("Iniciando o sistema...");
+
+            Log log2 = Log.Instancia;
+            log2.Registrar("Usuário fez login.");
+
+            // Verifica se ambas as instâncias são iguais
+            if (log1 == log2)
+            {
+                Console.WriteLine("\nAmbas as variáveis apontam para a mesma instância!");
+            }
+
+            Console.ReadLine();
+        }
+    }
+}
